@@ -5,7 +5,6 @@ const quizController = require('../controllers/quiz');
 const tipController = require('../controllers/tip');
 const userController = require('../controllers/user');
 const sessionController = require('../controllers/session');
-const favouriteController = require('../controllers/favourite');
 
 //-----------------------------------------------------------
 
