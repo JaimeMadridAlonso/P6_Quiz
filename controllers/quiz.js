@@ -172,7 +172,7 @@ exports.randomcheck = (req, res, next) => {
     const answer = query.answer || "";
     const result = answer.toLowerCase().trim() === quiz.answer.toLowerCase().trim();
     const quizId = quiz.id;
-    if(result){     //si es correcto, guardo el ID acertado en session, incremento puntuacion y renderizo pantalla de resultado
+    if(result){
         req.session.randomplay.push(quizId);
         var correctas = req.session.randomplay.length;
         res.render('quizzes/random_result', {score: correctas, answer, result});
