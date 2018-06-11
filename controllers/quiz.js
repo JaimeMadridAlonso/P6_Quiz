@@ -65,8 +65,11 @@ exports.index = (req, res, next) => {
 
         title = "Questions of " + req.user.username;
         }
-    }
 
+        models.quiz.count(countOptions)
+        .then(count => {
+
+            
         // Pagination:
 
         const items_per_page = 10;
