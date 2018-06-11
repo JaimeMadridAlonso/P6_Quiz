@@ -94,9 +94,9 @@ router.get('/users/:userId(\\d+)/quizzes',
 
 
 // Routes for the resource /quizzes
-router.get('/quizzes.:format?',
+router.get('/quizzes',
 	quizController.index);
-router.get('/quizzes/:quizId(\\d+).:format?',
+router.get('/quizzes/:quizId(\\d+)',
 	quizController.show);
 router.get('/quizzes/new',
     sessionController.loginRequired,
