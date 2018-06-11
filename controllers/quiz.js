@@ -216,8 +216,6 @@ exports.play = (req, res, next) => {
 
     const answer = query.answer || '';
 
-    new Promise(function (resolve, reject) {
-
         res.render('quizzes/play', {
             quiz,
             answer
