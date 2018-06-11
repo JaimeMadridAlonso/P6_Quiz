@@ -6,15 +6,14 @@
     "start": "heroku local:start",
     "super": "supervisor ./bin/www",
     "start_old": "node ./bin/www",
-    "migrate_local": "sequelize db:migrate --url sqlite://$(pwd)/quiz.sqlite",
-    "seed_local": "sequelize db:seed:all --url sqlite://$(pwd)/quiz.sqlite",
+    "migrate_local": "./node_modules/.bin/sequelize db:migrate --url sqlite://$(pwd)/quiz.sqlite",
+    "seed_local": "./node_modules/.bin/sequelize db:seed:all --url sqlite://$(pwd)/quiz.sqlite",
     "open_heroku": "heroku open",
     "migrate_heroku": "heroku run ./node_modules/.bin/sequelize db:migrate --url \\$DATABASE_URL",
     "seed_heroku": "heroku run ./node_modules/.bin/sequelize db:seed:all --url \\$DATABASE_URL",
     "reset_heroku": "heroku pg:reset DATABASE",
     "mon_heroku": "heroku maintenance:on",
-    "moff_heroku": "heroku maintenance:off",
-    "test": "NODE_ENV=testing mocha -R spec"
+    "moff_heroku": "heroku maintenance:off"
   },
   "engines": {
     "node": "8.9.1",
