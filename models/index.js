@@ -27,7 +27,7 @@ sequelize.import(path.join(__dirname,'session'));
 
 // Relation between models
 
-const {quiz, tip, attachment, user} = sequelize.models;
+const {quiz, tip, user} = sequelize.models;
 
 tip.belongsTo(quiz);
 quiz.hasMany(tip);
