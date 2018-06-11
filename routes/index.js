@@ -1,9 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-const multer  = require('multer');
-const upload = multer({ dest: './uploads/' });
-
 const quizController = require('../controllers/quiz');
 const tipController = require('../controllers/tip');
 const userController = require('../controllers/user');
@@ -128,7 +125,10 @@ router.get('/quizzes/:quizId(\\d+)/play',
 router.get('/quizzes/:quizId(\\d+)/check',
 	quizController.check);
 
-
+router.get('/quizzes/randomplay', 
+	quizController.randomplay);
+router.get('/quizzes/randomcheck/:quizId(\\d+)', 
+	quizController.randomcheck);
 
 router.post('/quizzes/:quizId(\\d+)/tips',     
     sessionController.loginRequired,
@@ -141,17 +141,5 @@ router.delete('/quizzes/:quizId(\\d+)/tips/:tipId(\\d+)',
     sessionController.loginRequired,
     quizController.adminOrAuthorRequired,
     tipController.destroy);
-
-
-// Routes for the resource favourites of a user
-router.put('/users/:userId(\\d+)/favourites/:quizId(\\d+)',
-    sessionController.loginRequired,
-    sessionController.adminOrMyselfRequired,
-    favouriteController.add);
-router.delete('/users/:userId(\\d+)/favourites/:quizId(\\d+)',
-    sessionController.loginRequired,
-    sessionController.adminOrMyselfRequired,
-    favouriteController.del);
-
 
 module.exports = router;
